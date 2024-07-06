@@ -11,7 +11,11 @@
 
 #include "connect_wifi.h"
 
-#define LED_PIN 2
+#if CONFIG_IDF_TARGET_ESP32C6
+#include "esp32c6/rom/gpio.h"
+#endif
+
+#define LED_PIN 8
 httpd_handle_t server = NULL;
 struct async_resp_arg {
     httpd_handle_t hd;
